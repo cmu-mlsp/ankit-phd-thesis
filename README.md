@@ -155,3 +155,61 @@ Official baseline system for DCASE 2018 Challenge Task 4, evaluating systems for
 **Publication:** [DCASE 2018 Workshop Proceedings](https://dcase.community/challenge2018/task-large-scale-weakly-labeled-semi-supervised-sound-event-detection)
 
 ---
+
+### 5. Learning Sound Events from Webly Labeled Data
+
+**Code:** [`webly-labeled-sounds/`](./webly-labeled-sounds/) | **Original Repository:** [anuragkr90/webly-labeled-sounds](https://github.com/anuragkr90/webly-labeled-sounds)
+
+**Description:**
+This project implements methods for learning sound event recognition using web-sourced training data with imperfect labels. It enables machine learning models to effectively learn audio classification tasks from datasets gathered from online sources that may contain label noise.
+
+**Key Features:**
+- Audio dataset processing and feature extraction from YouTube sources
+- Training/test split management for 40-dimensional embeddings
+- Scripts for annotation and model evaluation
+- Support for weakly-supervised learning from imperfect web labels
+
+**Technical Stack:**
+- **Languages:** Python (86.9%), Shell (13.1%)
+- **Focus:** Audio processing, machine learning for sound event detection
+
+**Project Structure:**
+- `annotation/` - Annotation tools and data
+- `features/` - Feature extraction modules
+- `lists/` - Dataset file lists
+- `scripts/` - Processing scripts
+- `runscripts/` - Execution scripts
+
+**Authors:** Anurag Kumar, Ankit Shah, Bhiksha Raj, Alexander Hauptmann
+
+**Publication:** [Learning Sound Events from Webly Labeled Data](https://doi.org/10.24963/ijcai.2019/384) - IJCAI 2019
+
+---
+
+### 6. Learning from Weak Labels (Interspeech 2022 Tutorial)
+
+**Code:** [`learning_from_weak_labels/`](./learning_from_weak_labels/) | **Original Repository:** [cmu-mlsp/learning_from_weak_labels](https://github.com/cmu-mlsp/learning_from_weak_labels)
+
+**Description:**
+Educational resource repository for the Interspeech 2022 tutorial on machine learning techniques for handling imperfect training data. Provides theoretical foundations and practical guidance on weak label learning approaches.
+
+**Key Features:**
+- Tutorial slides on weak label learning methodologies
+- Reference implementations in MATLAB and Python
+- Practical examples for handling incomplete, noisy, or imprecise labels
+- Techniques for training models with imperfect supervision
+
+**Technical Stack:**
+- **Languages:** MATLAB (60.7%), Python (39.3%)
+- **Focus:** Educational resource, weak label learning methods
+
+**Project Structure:**
+- `code/` - Reference implementations and examples
+
+**Presenters:** Bhiksha Raj, Anurag Kumar, Ankit Shah
+
+**Acknowledgments:** Sourish Chaudhari
+
+**Event:** [Interspeech 2022 Tutorial](https://www.interspeech2022.org/)
+
+---
