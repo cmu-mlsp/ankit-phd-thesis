@@ -8,7 +8,7 @@ This repository contains materials related to Ankit Shah's Ph.D. thesis at the M
 > Ph.D. Thesis, Carnegie Mellon University, 2024
 > Advisor: Prof. Bhiksha Raj
 
-**Links:** [KiltHub Repository](https://kilthub.cmu.edu/articles/thesis/Computational_Audition_with_Imprecise_Labels/28422542) | [PDF](http://cvis.cs.cmu.edu/cvis/docs/Ankit_Shah_Computational_Audition_with_Imprecise_labels_Thesis.pdf)
+**Links:** [KiltHub Repository](https://kilthub.cmu.edu/articles/thesis/Computational_Audition_with_Imprecise_Labels/28422542) | [PDF](https://kilthub.cmu.edu/ndownloader/files/52376099)
 
 ```bibtex
 @phdthesis{shah2024computational,
