@@ -250,3 +250,47 @@ A unified framework for learning from weak supervision, implementing state-of-th
 - [Imprecise Label Learning](https://arxiv.org/abs/2305.12715)
 
 ---
+
+### 8. An Approach to Ontological Learning from Weak Labels
+
+**Code:** [`an_approach_to_ontological_learning_from_weak_labels/`](./an_approach_to_ontological_learning_from_weak_labels/) | **Original Repository:** [ankitshah009/an_approach_to_ontological_learning_from_weak_labels](https://github.com/ankitshah009/an_approach_to_ontological_learning_from_weak_labels)
+
+**Description:**
+This project implements ontological learning for sound event classification using Siamese networks with hierarchical supervision. The approach leverages class ontology (parent-child relationships between sound categories) to improve classification performance by learning at multiple levels of the hierarchy simultaneously.
+
+**Key Features:**
+- **Siamese Network Architecture:** Shared weight networks for learning similarity between audio samples
+- **Ontological Layer:** Fixed (non-trainable) layer that maps subclass predictions to superclass predictions using the AudioSet ontology
+- **Multi-level Classification:** Simultaneous learning at subclass (fine-grained) and superclass (coarse) levels
+- **Contrastive Learning:** Embedding distances reflect ontological relationships between classes
+- **Multiple Feature Support:** Works with both AudioSet embeddings and YAMNet features
+
+**Technical Stack:**
+- **Languages:** Python (100%)
+- **Framework:** PyTorch
+- **Features:** 128-dimensional AudioSet embeddings, YAMNet embeddings
+- **Evaluation:** mAP and AUC metrics at both hierarchy levels
+
+**Project Structure:**
+- `models.py` - Siamese network architectures with ontological layers
+- `dataloaders.py` - Dataset classes for pair-based training
+- `loss.py` - Multi-task loss combining classification and contrastive objectives
+- `evaluate.py` - Evaluation metrics computation
+- `preprocess.py` - AudioSet TFRecord processing and ontology parsing
+- `ontology_correlation.py` - Ontology correlation matrix generation
+- `data/` - Preprocessed features and labels
+- `metadata/` - Class mappings and data sources
+- `results/` - Experimental results
+
+**Key Concepts:**
+- **Pair Types:** Training uses three types of audio pairs:
+  - Type 0: Same subclass (most similar)
+  - Type 1: Different subclass, same superclass (moderately similar)
+  - Type 2: Different superclass (dissimilar)
+- **Ontology Matrix:** Binary matrix M where M[i,j]=1 if subclass i belongs to superclass j
+
+**Authors:** Ankit Shah et al.
+
+**Related Publication:** Sound event classification using ontology-based neural networks
+
+---
