@@ -1,0 +1,476 @@
+{% load static %}
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="{% static 'neal_main/css.css' %}" />
+
+<script src="{% static 'downloads/audio.js' %}"></script>
+<script>
+// ensure the web page (DOM) has loaded
+// ensure the web page (DOM) has loaded
+function delineate(str1,str2,str3)
+{
+document.addEventListener("DOMContentLoaded", function () {
+// Create a popcorn instance by calling Popcorn("#id-of-my-video")
+var x = "#" + str3
+var pop = Popcorn(x);
+// add a footnote at 2 seconds, and remove it at 6 seconds
+pop.footnote({
+start: str1,
+end: str2,
+text: "hello",
+target: "footnotediv"
+});
+// play the video right away
+//pop.play();
+}, false);
+
+}
+
+</script>
+
+
+<title>NELS: Never Ending Learning of Sound
+</title>
+
+</head>
+<body >
+<div id = "title">
+	<h1 class="logo">
+		<a href="" target = "_parent">
+		NELS: Never Ending Learning of Sound
+		</a>
+	</h1>
+
+<p class="institute">
+
+    I Crawl, I Hear, I Learn.
+
+</p>
+</font>
+</div>
+<div id="topmiddle" style="float: left; margin-top: 20px; margin-left: 30px;">
+<font color = "#cccccc">
+    <center>
+	<h3 style="width: 40px;">
+
+         Statistics:
+
+    </h3>
+    </center>
+	<table style="font-size: 0.8em; margin-left: 20px; line-height: 1.4;">
+        <tbody>
+            <tr>
+                <td style="text-align:right">
+
+                Concepts: 7
+
+                </td>
+		<td style="text-align:right">
+
+                Audio Clips: 850
+
+                </td>
+                
+            </tr>
+            <tr>
+                <td style="text-align:right">
+
+                &nbsp;&nbsp;&nbsp;Segmentations: 1, 93, 000
+
+                </td>
+                <td style="text-align:right">
+
+                &nbsp;&nbsp;&nbsp;Audio Relationships: to be mapped
+
+
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</font>
+</div>
+<div id="topright">
+<font color = "#cccccc">
+<input id="category" value="Search Here"></input>
+<input class="button" type="submit" onclick="javascript: formSubmit()" value="Submit" name="SubmitT"></input>
+</font>
+</div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<!--
+<div class="left_content">
+<frameset framespacing="2" frameborder="no" cols="250,*">
+
+    <frame name="neal_category">
+    <html>
+<li>Scenes<br /><br />
+<li>Attributes<br /><br />
+<li>Train a Concept<br /><br />
+<li>Downloads<br /><br />
+<li>About<br /><br />
+	</bullet>
+	</html>
+    </frame>
+
+</frameset>
+</div>
+
+<div class="right_content">
+<frameset framespacing="2" frameborder="no" cols="250,*">
+
+    <frame name="neal_category">
+    <html>
+<table>
+    <tr>
+        <th>One</th>
+        
+        <th>Two</th>
+    </tr>
+    {% for item in query_results %}
+    <tr> 
+        <td>{{ item.one }}</td>
+        
+        <td>{{ item.two }}</td>
+    </tr>
+    {% endfor %}
+</table>
+	</html>
+    </frame>
+
+</frameset>
+</div>
+-->
+
+<div class="content">
+<frameset framespacing="2" frameborder="no" cols="250,*">
+
+    <frame name="neal_category">
+    <html>
+	<div class = "tab">
+	<h2><a href = "{% url 'neal_main:neal_index' %}">Home</a></h2>
+	</div>
+	<div class = "tab">
+	<h2><a href = "{% url 'neal_main:objects' %}">Objects</a></h2>
+	</div>
+	<div class = "tab">
+	<h2><a href = "{% url 'neal_main:segments' %}">Segments</a></h2>
+	</div>
+	<div class = "tab">
+	<h2><a href = "{% url 'neal_main:crawler' %}">Crawler</a></h2>
+	</div>
+	<div class = "tab">
+	<h2><a href = "{% url 'neal_main:downloads' %}">Downloads</a></h2>
+	</div>
+	<div class = "tab">
+	<h2><a href = "{% url 'neal_main:about' %}">About</a></h2>
+	</div>
+	
+	
+	<br />
+	<br />
+	
+	<br />
+	<br />
+	
+	<!--
+	<table cellpadding = "30px">
+    <tr>
+        <th>Object Name</th>
+        <th>Category</th>
+	<th>StartTime</th>
+	<th>EndTime</th>
+	<th>URL Source</th>
+        <th>URL_File_Source</th>
+	<th>Date Learnt</th>
+	<th>Confidence</th>
+    </tr>
+    {% for item in query_results %}
+    <tr> 
+        <td>{{ item.object_name }}</td>
+        <td>{{ item.category }}</td>
+        <td>{{ item.start_time }}</td>
+        <td>{{ item.end_time }}</td>
+        <td>{{ item.url }}</td>
+        <td>{{ item.url_audio_file }}</td>
+        <td>{{ item.date_learned }}</td>
+        <td>{{ item.confidence }}</td>
+        </tr>
+    {% endfor %}
+	-->
+	{% if object_selected_flag %}
+	<div class = "music">
+	<div class = "music_left">
+	<h3>Categories:</h3>
+	<br />
+	<br />
+	<ul>	
+	{% for item in category_results %}
+		{% if item.category == selected_category %}
+		<strong><u><li><a href = "{% url 'neal_main:objects' %}">{{ item.category }}</a></li></u></string>
+		<br />
+		<div class = "topic_display">		
+		<ol start = "1">
+			{% for result in object_results %}
+			{% if result.object_name == selected_object %}			
+			<strong><u><li><a href = {% url 'neal_main:objects_selected' item.category|slugify %}> {{ result.object_name }} </a></li></u></strong>
+			<br />
+			{% else %}
+			<li><a href = {% url 'neal_main:category_objects_selected' item.category|slugify result.object_name|slugify %}> {{ result.object_name }} </a></li>
+			<br />
+			{% endif %}
+			{% endfor %}	
+		</ol>
+		<br />	
+		</div>
+		{% else %}
+		<li><a href = "{% url 'neal_main:objects_selected' item.category|slugify %}">{{ item.category }}</a>
+		<br />
+		{% endif %}	
+	{% endfor %}
+	</ul>
+	</div>
+	<div class = "music_right">
+	Sounds corresponding to category - {{ selected_category }} and object {{ object_selected_row.object_name }}:
+	<br />
+	<br /> 
+	<div class="pagination">
+    	<span class="step-links">
+        {% if query_results.has_previous %}
+            <strong><u><a href="?page={{ query_results.previous_page_number }}">Previous Page</a></u></strong>&nbsp;&nbsp;&nbsp;
+        {% endif %}
+
+        <span class="current">
+            Page {{ query_results.number }} of {{ query_results.paginator.num_pages }}. &nbsp;&nbsp;&nbsp;
+        </span>
+
+        {% if query_results.has_next %}
+            <strong><u><a href="?page={{ query_results.next_page_number }}"> Next Page</a></u></strong>
+        {% endif %}
+    	</span>
+	</div>
+	
+	<br />
+	<br />
+	
+	{% for item in query_results %}
+		<div class = "music_content">
+		Object: {{item.object_name}}
+		<br />
+		<br />
+		
+		{% for key, value in cached_dict.items %} 
+  			{% ifequal key item.object_name %}
+				{% for key1, value1 in value.items %}
+					{% ifequal key1 item.category %}					
+						<li>Category = {{ key1 }} => Values: {{ value1 }}</li>
+						{% for item in value1 %}
+		    					<script>delineate({{ item.start }},{{ item.end }},{{ key }});</script>
+						{% endfor %}
+					{% endifequal %}
+				{% endfor %}
+			{% endifequal %}
+ 		{% endfor %}
+	    	<br />
+	    	<audio id = "{{ item.object_name }}" controls>
+  		<source src="{{STATIC_URL}}downloads/{{item.object_name}}.wav" type="audio/mpeg">
+  		Your browser does not support the audio tag.
+		</audio>
+		<div id="footnotediv"></div>
+		<br />
+		<br />
+		<!--Start Time: {{item.start_time.time}} &nbsp;&nbsp;&nbsp;&nbsp;End Time: {{ item.end_time.time }} &nbsp;&nbsp;&nbsp;&nbsp;--> Source: {{ item.url }}
+		<br />
+		Date Learnt: {{ item.date_learned }}
+		<br />
+		<br />
+		</div>
+	{% endfor %}
+	</div>
+	</div>	
+	
+
+	{% elif selected_flag %}
+	<div class = "music">
+	<div class = "music_left">
+	<h3>Categories:</h3>
+	<br />
+	<br />
+	<ul>	
+	{% for item in category_results %}
+		{% if item.category == selected_category %}
+		<strong><u><li><a href = "{% url 'neal_main:objects' %}">{{ item.category }}</a></li></u></string>
+		<br />
+		<div class = "topic_display">		
+		<ol start = "1">
+			{% for result in object_results %}
+			{% if result.object_name == selected_object %}			
+			<strong><u><li><a href = {% url 'neal_main:objects_selected' item.category|slugify %}> {{ result.object_name }} </a></li></u></strong>
+			<br />
+			{% else %}
+			<li><a href = {% url 'neal_main:category_objects_selected' item.category|slugify result.object_name|slugify %}> {{ result.object_name }} </a></li>
+			<br />
+			{% endif %}
+			{% endfor %}	
+		</ol>
+		<br />	
+		</div>
+		{% else %}
+		<li><a href = "{% url 'neal_main:objects_selected' item.category|slugify %}">{{ item.category }}</a>
+		<br />
+		{% endif %}	
+	{% endfor %}
+	</ul>
+	</div>
+	<div class = "music_right">
+	Sounds corresponding to category - {{ selected_category }}:
+	<br />
+	<br /> 
+	<div class="pagination">
+    	<span class="step-links">
+        {% if query_results.has_previous %}
+            <strong><u><a href="?page={{ query_results.previous_page_number }}">Previous Page</a></u></strong>&nbsp;&nbsp;&nbsp;
+        {% endif %}
+
+        <span class="current">
+            Page {{ query_results.number }} of {{ query_results.paginator.num_pages }}. &nbsp;&nbsp;&nbsp;
+        </span>
+
+        {% if query_results.has_next %}
+            <strong><u><a href="?page={{ query_results.next_page_number }}"> Next Page</a></u></strong>
+        {% endif %}
+    	</span>
+	</div>
+	
+	<br />
+	<br />
+	
+	{% for item in query_results %}
+		<div class = "music_content">
+		Object: {{item.object_name}}
+		<br />
+		<br />
+		
+		{% for key, value in cached_dict.items %} 
+  			{% ifequal key item.object_name %}
+				{% for key1, value1 in value.items %}
+					{% ifequal key1 item.category %}					
+						<li>Category = {{ key1 }} => Values: {{ value1 }}</li>
+						{% for item in value1 %}
+		    					<script>delineate({{ item.start }},{{ item.end }},{{ key }});</script>
+						{% endfor %}
+					{% endifequal %}
+				{% endfor %}
+			{% endifequal %}
+ 		{% endfor %}
+	    	<br />
+	    	<audio id = "{{ item.object_name }}" controls>
+  		<source src="{{STATIC_URL}}downloads/{{item.object_name}}.wav" type="audio/mpeg">
+  		Your browser does not support the audio tag.
+		</audio>
+		<div id="footnotediv"></div>
+		<br />
+		<br />
+		<!--Start Time: {{item.start_time.time}} &nbsp;&nbsp;&nbsp;&nbsp;End Time: {{ item.end_time.time }} &nbsp;&nbsp;&nbsp;&nbsp;--> Source: {{ item.url }}
+		<br />
+		Date Learnt: {{ item.date_learned }}
+		<br />
+		<br />
+		</div>
+	{% endfor %}
+	</div>
+	</div>	
+	
+	
+	{% else %}
+		
+	<div class = "music">
+	<div class = "music_left">
+	<h3>Categories:</h3>
+	<br />
+	<br />
+	
+	<ul>	
+	{% for item in category_results %}
+	<li><a href = "{% url 'neal_main:objects_selected' item.category|slugify %}">{{ item.category }}</a>
+	<br />
+	{% endfor %}
+	</ul>
+	</div>
+	<div class = "music_right">
+	Please select a category from the left to view objects corresponding to them. 
+	<br />
+	<br />
+	Following are the sounds of most popular objects learnt by NELS: 
+	<br />
+	<br />
+
+	<div class="pagination">
+    	<span class="step-links">
+        {% if query_results.has_previous %}
+            <strong><u><a href="?page={{ query_results.previous_page_number }}">Previous Page</a></u></strong>&nbsp;&nbsp;&nbsp;
+        {% endif %}
+
+        <span class="current">
+            Page {{ query_results.number }} of {{ query_results.paginator.num_pages }}. &nbsp;&nbsp;&nbsp;
+        </span>
+
+        {% if query_results.has_next %}
+            <strong><u><a href="?page={{ query_results.next_page_number }}"> Next Page</a></u></strong>
+        {% endif %}
+    	</span>
+	</div>
+	
+	<br />
+	<br />
+	{% for item in query_results %}
+		<div class = "music_content">
+		Object: {{item.object_name}}
+		<br />
+		<br />
+		
+		{% for key, value in cached_dict.items %} 
+  			{% ifequal key item.object_name %}
+				{% for key1, value1 in value.items %}
+					<li>Category = {{ key1 }} => Values: {{ value1 }}</li>
+					{% for item in value1 %}
+	    					<script>delineate({{ item.start }},{{ item.end }},{{ key }});</script>
+					{% endfor %}
+				{% endfor %}
+			{% endifequal %}
+ 		{% endfor %}
+	    	<br />
+	 	<audio id = "{{ item.object_name }}" controls>
+  		<source src="{{STATIC_URL}}downloads/{{item.object_name}}.wav" type="audio/mpeg">
+  		Your browser does not support the audio tag.
+		</audio> 
+		<div id="footnotediv"></div>
+		<br />
+		<br />
+		<!--Start Time: {{item.start_time.time}} &nbsp;&nbsp;&nbsp;&nbsp;End Time: {{ item.end_time.time }} &nbsp;&nbsp;&nbsp;&nbsp;--> Source: {{ item.url }}
+		<br />
+		Date Learnt: {{ item.date_learned }}
+		<br />
+		<br />
+		</div>
+	{% endfor %}
+
+	
+	
+	</div>
+	</div>	
+
+	{% endif %}
+
+	
+</html>
+</frame>
+</frameset>
+</div>
+
+
+</body>
+</html>

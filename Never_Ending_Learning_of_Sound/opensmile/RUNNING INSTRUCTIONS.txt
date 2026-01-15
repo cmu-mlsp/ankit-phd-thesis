@@ -1,0 +1,41 @@
+RUNNING INSTRUCTIONS:
+
+These are the instructions for the training of database for sound samples collected.
+
+1. Install Dependecies
+sudo bash install_dependencies.sh
+
+2. Extract Features and Get Kmeans Cluster Assignment for sound samples in folder sound_samples/
+sudo bash train_bashfile.sh
+
+3. Get Histograms (Bag of words)
+sudo bash auto_histogram.sh
+
+4. Generate a .train file
+sudo bash auto_svm.sh
+
+--------------------------------------------------------------------------
+For the testing of a file
+
+1. Extract features and get the normalized values of the generated file and later run sliding window to generate separate files for the window
+sudo bash test_bashfile.sh
+
+2. Get the Histograms (Bag of Words)
+sudo bash auto_histogram_test.sh
+
+3. Generate a .test file for the svm predict step
+sudo bash auto_svm_test.sh
+
+4. Predict using the files generated
+sudo bash svm_predict.sh
+
+-------------------------------------------------------------------------------
+
+Now to generate the precision and recall curve
+sudo bash precision_recall_plot.sh
+
+-------------------------------------------------------------------------------
+
+Find the files greater than some confidence level for retraining purpose
+
+sudo bash find_confidence_level_files.sh
