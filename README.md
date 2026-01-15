@@ -1,5 +1,27 @@
-# Ankit Shah Ph.D. Thesis - Carnegie Mellon University  
+# Ankit Shah Ph.D. Thesis - Carnegie Mellon University
 This repository contains materials related to Ankit Shah's Ph.D. thesis at the Machine Learning and Signal Processing (MLSP) Group of Carnegie Mellon University (CMU). The aim is to consolidate research insights, findings, and code from the doctoral journey.
+
+## Thesis Citation
+
+> **Computational Audition with Imprecise Labels**
+> Ankit Parag Shah
+> Ph.D. Thesis, Carnegie Mellon University, 2024
+> Advisor: Prof. Bhiksha Raj
+
+**Links:** [KiltHub Repository](https://kilthub.cmu.edu/articles/thesis/Computational_Audition_with_Imprecise_Labels/28422542) | [PDF](http://cvis.cs.cmu.edu/cvis/docs/Ankit_Shah_Computational_Audition_with_Imprecise_labels_Thesis.pdf)
+
+```bibtex
+@phdthesis{shah2024computational,
+  title={Computational Audition with Imprecise Labels},
+  author={Shah, Ankit Parag},
+  year={2024},
+  school={Carnegie Mellon University},
+  address={Pittsburgh, PA},
+  note={Language Technologies Institute, School of Computer Science}
+}
+```
+
+---
 
 ## Purpose
 This repository aims to share research, publications, and supplementary materials aligned with the focus areas of the MLSP Group.
