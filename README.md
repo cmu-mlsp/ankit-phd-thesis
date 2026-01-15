@@ -186,34 +186,66 @@ This project implements methods for learning sound event recognition using web-s
 
 ---
 
-### 6. Learning from Weak Labels (Interspeech 2022 Tutorial + ICML 2024 Framework)
+### 6. Learning from Weak Labels (Interspeech 2022 Tutorial)
 
-**Code:** [`learning_from_weak_labels/`](./learning_from_weak_labels/) | **Original Repositories:** [cmu-mlsp/learning_from_weak_labels](https://github.com/cmu-mlsp/learning_from_weak_labels), [Hhhhhhao/General-Framework-Weak-Supervision](https://github.com/Hhhhhhao/General-Framework-Weak-Supervision)
+**Code:** [`learning_from_weak_labels/`](./learning_from_weak_labels/) | **Original Repository:** [cmu-mlsp/learning_from_weak_labels](https://github.com/cmu-mlsp/learning_from_weak_labels)
 
 **Description:**
-Comprehensive resources for learning from imprecise/weak labels, including the Interspeech 2022 tutorial materials and the ICML 2024 general framework implementation. Covers theoretical foundations, practical guidance, and state-of-the-art methods for weak label learning.
+Educational resource repository for the Interspeech 2022 tutorial on machine learning techniques for handling imperfect training data. Provides theoretical foundations and practical guidance on weak label learning approaches.
 
 **Key Features:**
 - Tutorial slides on weak label learning methodologies
 - Reference implementations in MATLAB and Python
-- **General Framework (ICML 2024):** Unified approach for 14+ weak supervision settings
-  - Handles inexact (incomplete), incomplete (unlabeled), and inaccurate (corrupted) supervision
-  - Models weak supervision as Non-deterministic Finite Automata (NFA)
-  - Supports partial labels, noisy labels, semi-supervised, multiple instance learning, and more
+- Practical examples for handling incomplete, noisy, or imprecise labels
+- Techniques for training models with imperfect supervision
 
 **Technical Stack:**
-- **Languages:** MATLAB, Python
-- **Framework:** Based on USB (Universal Semi-supervised Learning) codebase
-- **Training:** GPU-enabled (CUDA support)
+- **Languages:** MATLAB (60.7%), Python (39.3%)
+- **Focus:** Educational resource, weak label learning methods
 
 **Project Structure:**
-- `code/` - Reference implementations and examples (Interspeech tutorial)
-- `General-Framework-Weak-Supervision/` - ICML 2024 unified framework implementation
+- `code/` - Reference implementations and examples
 
 **Presenters:** Bhiksha Raj, Anurag Kumar, Ankit Shah
 
+**Acknowledgments:** Sourish Chaudhari
+
+**Event:** [Interspeech 2022 Tutorial](https://www.interspeech2022.org/)
+
+---
+
+### 7. Imprecise Label Learning - General Framework (ICML 2024)
+
+**Code:** [`imprecise_label_learning/`](./imprecise_label_learning/) | **Original Repository:** [Hhhhhhao/General-Framework-Weak-Supervision](https://github.com/Hhhhhhao/General-Framework-Weak-Supervision)
+
+**Description:**
+A unified framework for learning from weak supervision, implementing state-of-the-art methods from ICML 2024. Provides a general approach for handling 14+ weak supervision settings under one mathematical formalism using Non-deterministic Finite Automata (NFA).
+
+**Key Features:**
+- **Unified approach for 14+ weak supervision settings:**
+  - Partial label learning, Noisy label learning
+  - Semi-supervised learning variants
+  - Multiple instance learning
+  - Pairwise comparison/similarity learning
+  - Positive-unlabeled and label proportion learning
+- Handles three supervision categories:
+  - **Inexact:** Incomplete annotations
+  - **Incomplete:** Unlabeled data
+  - **Inaccurate:** Corrupted labels
+- Optimization via EM objective on trellis structures using forward-backward algorithms
+
+**Technical Stack:**
+- **Languages:** Python (100%)
+- **Framework:** Based on USB (Universal Semi-supervised Learning) codebase
+- **Training:** GPU-enabled (CUDA support)
+- **Configuration:** YAML-based experiment configs
+
+**Project Structure:**
+- `General-Framework-Weak-Supervision/` - Full framework implementation
+  - `config/` - Experiment configuration files
+  - `semilearn/` - Core learning algorithms
+
 **Publications:**
-- [Interspeech 2022 Tutorial](https://www.interspeech2022.org/)
 - [A General Framework for Learning from Weak Supervision](https://arxiv.org/abs/2402.01922) - ICML 2024
 - [Imprecise Label Learning](https://arxiv.org/abs/2305.12715)
 
